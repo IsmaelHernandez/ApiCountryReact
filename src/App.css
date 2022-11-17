@@ -1,0 +1,29 @@
+.App{
+
+}
+
+*{
+    margin: 0;  
+}
+
+.titleapp{
+    text-align: center;
+}
+
+.divapp{
+    width: 100%;
+    background-color: bisque;
+}
+
+.card{
+    width: 400px;
+    height: 300px;
+    background-color: blueviolet;
+}
+
+.divContainer{
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    justify-content: center;
+}
