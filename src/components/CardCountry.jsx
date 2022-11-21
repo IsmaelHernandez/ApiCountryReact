@@ -2,12 +2,12 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-function CardCountry () {
+const CardCountry = ({countryName}) => {
 
     const [country, setCountry] = useState()
 
     useEffect(() => {
-      const URL = 'https://restcountries.com/v3.1/name/mexico'
+      const URL = `https://restcountries.com/v3.1/name/${countryName}`
       axios.get(URL)
         .then(res => setCountry(res.data[0]))
         .catch(err => console.log(err))
@@ -17,10 +17,15 @@ function CardCountry () {
     
   return (
     <article className='card'>
-        <img src={country?.flags.png} alt="" />
-       <h1>{country?.flag}</h1>
-       <h3>{country?.name.nativeName.spa.official}</h3>
-       <h3>{country?.timezones[0]}</h3> 
+      <div className='imgdivcard'>
+        <img src={country?.flags.svg} alt="" />
+      </div>
+      <ul>
+        <li><h3>Name: {country?.name.common}</h3></li>
+        <li><h3>Language: {country?.languages.spa}</h3></li>
+        <li><h3>Capital: {country?.capital[0]}</h3></li>
+        <li><h3>Time-Zone: {country?.timezones[0]}</h3></li>
+      </ul>
     </article>
   )
 }
